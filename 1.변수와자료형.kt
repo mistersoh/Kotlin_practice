@@ -10,6 +10,7 @@
   * kotlin에서 8진수 표기는 지원하지 않는다
   * 문자형 - char(UTF16,2bytes/16bits)
   * 논리형 - Boolean(True/False)
+  * Any - 어떤 자료형이든 상관없는 최상위 자료형
   */
 fun main() {
   //null
