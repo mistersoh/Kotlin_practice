@@ -1,40 +1,48 @@
 /**
+ * 제너릭 - 클래스나 함수에서 사용하는 자료형을 외부에서 지정하는 기능.
+ *         - 캐스팅을 해도 되나 프로그램의 속도를 저하시킬 수 있다.
+ *         - 함수나 클래스를 선언할 때 고정적인 자료형 대신 실제
+ *           자료형으로 대체되는 타입 패러미터를 받아 사용한다.
+ *           (타입을 자동 추론)
+ *         - 일반적으로 Type을 뜻하는 T를 사용, 여러개일 경우 T 다음
+ *           알파벳 사용
+ *         - 제네릭을 특정한 수퍼 클래스를 상속받은 클래스 타입으로만
+ *           제한하려면 <T: SuperClass>라고 사용
  *
  */
 
 fun main() {
-    var a = Drink()
-    a.drink()
+    UsingGeneric(A()).genericShout() // 제네릭 사용시 캐스팅 방지 가능
+    UsingGeneric(B()).genericShout()
+    UsingGeneric(C()).genericShout()
 
-    var b: Drink = Coke()
-    b.drink()
-
-    if (b is Coke) { // is 는 변수가 자요형에 호환되는지를 먼저 체크 후 변환.
-        // 조건문 안에서만 잠시 다운캐스팅이 된다.
-        b.trash()
-    }
-
-    var c = b as Coke // 업캐스팅. 변수를 호환되는 자료형으로 변환해주느 캐스팅 연산자
-    c.trash()
-    b.trash() // as를 쓰면 반환값 뿐만 아니라 변수 자체도 다운캐스팅이 된다
+    genericShout(C())
 }
 
-open class Drink {
-    var name = "Something to drink"
+fun <T : A> genericShout(t: T) {
+    t.shout()
+}
 
-    open fun drink() {
-        println("Drinks $name")
+open class A {
+    open fun shout() {
+        println("Shout out from A")
     }
 }
 
-class Coke : Drink() {
-    var type = "Cola"
-
-    override fun drink() {
-        println("Drinking $name which is $type")
+class B : A() {
+    override fun shout() {
+        println("Shout out from B")
     }
+}
 
-    fun trash() {
-        println("bin the $type")
+class C : A() {
+    override fun shout() {
+        println("Shout out from C")
+    }
+}
+
+class UsingGeneric<T : A>(val t: T) {
+    fun genericShout() {
+        t.shout()
     }
 }
