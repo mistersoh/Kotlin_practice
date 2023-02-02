@@ -13,29 +13,29 @@
   * Any - 어떤 자료형이든 상관없는 최상위 자료형
   */
 fun main() {
-  //null
-  var c:Int? = null //nullable 변수 선언, null 상태로 연산시 null exception
+    // null
+    var c: Int? = null // nullable 변수 선언, null 상태로 연산시 null exception
 
-  //정수형
-  val intA:Int = 100
-  var longVal:Long = 1234L
-  var intValHex:Int = 0x1af
-  var intValBin:Int = 0b10111
+    // 정수형
+    val intA: Int = 100
+    var longVal: Long = 1234L
+    var intValHex: Int = 0x1af
+    var intValBin: Int = 0b10111
 
-  //실수형
-  var floatb:Float = 50.0f
-  val doubleVal:Double = 1241.4
-  var doubleValWithExp:Double = 1234.5e10
-  
-  //문자형
-  var charA:Char = 'A'
+    // 실수형
+    var floatb: Float = 50.0f
+    val doubleVal: Double = 1241.4
+    var doubleValWithExp: Double = 1234.5e10
 
-  //논리형
-  var bool:Boolean = true
+    // 문자형
+    var charA: Char = 'A'
 
-  //문자열
-  var singleLine = "this is single line"
-  val multiLine = """for
+    // 논리형
+    var bool: Boolean = true
+
+    // 문자열
+    var singleLine = "this is single line"
+    val multiLine = """for
   multiple
   lines"""
-} 
+}

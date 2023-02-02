@@ -1,17 +1,16 @@
 /**
- * 
+ *
  */
 
- fun main() {
-    
+fun main() {
     var a = Drink()
     a.drink()
 
     var b: Drink = Coke()
     b.drink()
 
-    if(b is Coke){ // is 는 변수가 자요형에 호환되는지를 먼저 체크 후 변환.
-                   // 조건문 안에서만 잠시 다운캐스팅이 된다.
+    if (b is Coke) { // is 는 변수가 자요형에 호환되는지를 먼저 체크 후 변환.
+        // 조건문 안에서만 잠시 다운캐스팅이 된다.
         b.trash()
     }
 
@@ -20,22 +19,22 @@
     b.trash() // as를 쓰면 반환값 뿐만 아니라 변수 자체도 다운캐스팅이 된다
 }
 
-open class Drink{
+open class Drink {
     var name = "Something to drink"
 
-    open fun drink(){
-        println("Drinks ${name}")
+    open fun drink() {
+        println("Drinks $name")
     }
 }
 
-class Coke: Drink(){
+class Coke : Drink() {
     var type = "Cola"
 
-    override fun drink(){
-        println("Drinking ${name} which is ${type}")
+    override fun drink() {
+        println("Drinking $name which is $type")
     }
 
-    fun trash(){
-        println("bin the ${type}")
+    fun trash() {
+        println("bin the $type")
     }
 }
