@@ -56,6 +56,6 @@ fun sum(text: String, vararg numbers: Int) {
 }
 
 infix fun Int.multiply(x: Int): Int = this * x // class 안에서 선언될 시,
-                                               // 적용할 클래스가 자기자신 
-                                               // 이므로 class 이름은 쓰지
-                                               // 않는다
+// 적용할 클래스가 자기자신
+// 이므로 class 이름은 쓰지
+// 않는다
